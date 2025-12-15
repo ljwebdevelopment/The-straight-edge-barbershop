@@ -20,8 +20,10 @@ if (toggle && nav) {
 }
 
 // Improve scroll-to behavior by accounting for sticky header
-const header = document.querySelector(".header");
-const headerHeight = header ? header.offsetHeight : 80;
+function getHeaderOffset(){
+  const header = document.querySelector(".header");
+  return header ? header.offsetHeight + 14 : 94;
+}
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (e) => {
@@ -32,8 +34,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     if (!target) return;
 
     e.preventDefault();
-    const top = target.getBoundingClientRect().top + window.pageYOffset - (headerHeight + 14);
-
+    const top = target.getBoundingClientRect().top + window.pageYOffset - getHeaderOffset();
     window.scrollTo({ top, behavior: "smooth" });
   });
 });
@@ -42,7 +43,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Accordion behavior: optional single-open mode (keeps it classy/clean)
+// Accordion single-open mode
 const accordions = document.querySelectorAll(".acc");
 accordions.forEach((d) => {
   d.addEventListener("toggle", () => {
