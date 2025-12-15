@@ -495,6 +495,19 @@ a{ color: inherit; text-decoration:none; }
 }
 
 /* Hours & Location */
+/* Prevent long text (like emails) from forcing horizontal overflow */
+.info-value,
+.info-value a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Extra safety: kill horizontal scrolling site-wide */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .info-card{
   margin-top: 12px;
   background: rgba(255,255,255,0.05);
