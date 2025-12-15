@@ -11,121 +11,518 @@
 </head>
 
 <body>
-<a class="skip-link" href="#home">Skip to content</a>
+  <a class="skip-link" href="#home">Skip to content</a>
 
-<header class="header" aria-label="Primary">
-  <div class="container header__inner">
-    <a class="brand" href="#home">
-      <img class="brand__logo" src="assets/Straight%20Edge%20Logo%20White.png" alt="The Straight Edge Barbershop logo">
-      <div class="brand__text">
-        <div class="brand__name">The Straight Edge Barbershop</div>
-        <div class="brand__sub">514 S Muskogee Ave • Tahlequah, OK</div>
-      </div>
-    </a>
+  <!-- Header / Nav -->
+  <header class="header" aria-label="Primary">
+    <div class="container header__inner">
+      <a class="brand" href="#home" aria-label="The Straight Edge Barbershop">
+        <img class="brand__logo" src="assets/Straight%20Edge%20Logo%20White.png" alt="The Straight Edge Barbershop logo" />
+        <div class="brand__text">
+          <div class="brand__name">The Straight Edge Barbershop</div>
+          <div class="brand__sub">514 S Muskogee Ave • Tahlequah, OK</div>
+        </div>
+      </a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span class="nav-toggle__line"></span>
-      <span class="nav-toggle__line"></span>
-      <span class="nav-toggle__line"></span>
-      <span class="sr-only">Menu</span>
-    </button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+        <span class="sr-only">Menu</span>
+      </button>
 
-    <nav id="site-nav" class="nav">
-      <a class="nav__link" href="#about">About</a>
-      <a class="nav__link" href="#services">Services</a>
-      <a class="nav__link" href="#team">Team</a>
-      <a class="nav__link" href="#event">Back-to-School</a>
-      <a class="nav__link" href="#reviews">Reviews</a>
-      <a class="nav__link" href="#hours-location">Hours & Location</a>
-      <a class="nav__link nav__link--cta" href="#book">Book</a>
-    </nav>
-  </div>
-</header>
-
-<main id="home">
-
-<section class="hero">
-  <div class="hero__bg"></div>
-  <div class="container hero__inner">
-    <div class="hero__card">
-      <div class="hero__kicker">Tahlequah, Oklahoma</div>
-      <h1 class="hero__title">Classic craft. Modern edge.</h1>
-      <p class="hero__lead">
-        Precision cuts, clean fades, detailed beard work, and braids—served with a welcoming hometown atmosphere.
-      </p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="https://www.vagaro.com/thestraightedgebarbershop/book-now" target="_blank">Book Appointment</a>
-        <a class="btn btn--ghost" href="tel:+19182072098">Call the Shop</a>
-      </div>
+      <nav id="site-nav" class="nav" aria-label="Site navigation">
+        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#services">Services</a>
+        <a class="nav__link" href="#team">Team</a>
+        <a class="nav__link" href="#event">Back-to-School</a>
+        <a class="nav__link" href="#reviews">Reviews</a>
+        <a class="nav__link" href="#hours-location">Hours & Location</a>
+        <a class="nav__link nav__link--cta" href="#book">Book</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="hours-location" class="section">
-  <div class="container grid-2">
-    <div>
-      <div class="eyebrow">Hours & Location</div>
-      <h2 class="h2">Visit Us</h2>
+  <!-- Hero -->
+  <main id="home">
+    <section class="hero" aria-label="Hero">
+      <div class="hero__bg" role="img" aria-label="Exterior of The Straight Edge Barbershop"></div>
 
-      <div class="info-card">
-        <div class="info-row">
-          <div class="info-label">Address</div>
-          <div class="info-value">514 S Muskogee Ave, Tahlequah, OK</div>
-        </div>
-        <div class="info-row">
-          <div class="info-label">Phone</div>
-          <div class="info-value">
-            <a href="tel:+19182072098">918-207-2098</a>
-          </div>
-        </div>
-        <div class="info-row">
-          <div class="info-label">Email</div>
-          <div class="info-value">
-            <a href="mailto:thestraightedge514@gmail.com">
-              thestraightedge514@gmail.com
+      <div class="container hero__inner">
+        <div class="hero__card">
+          <div class="hero__kicker">Tahlequah, Oklahoma</div>
+          <h1 class="hero__title">Classic craft. Modern edge.</h1>
+          <p class="hero__lead">
+            Precision cuts, clean fades, detailed beard work, and braids—served with a welcoming hometown atmosphere.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="https://www.vagaro.com/thestraightedgebarbershop/book-now" target="_blank" rel="noopener">
+              Book Appointment
             </a>
+            <a class="btn btn--ghost" href="tel:+19182072098">Call the Shop</a>
+          </div>
+
+          <div class="hero__meta">
+            <div class="meta-pill">Tuesday–Friday: 9:00 AM–5:00 PM</div>
+            <div class="meta-pill">Saturday: 9:00 AM–12:00 PM</div>
           </div>
         </div>
-        <div class="info-row">
-          <div class="info-label">Hours</div>
-          <div class="info-value">
-            Tue–Fri: 9:00 AM–5:00 PM<br>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container grid-2">
+        <div>
+          <div class="eyebrow">About</div>
+          <h2 class="h2">A barbershop built on precision and personalized service.</h2>
+          <p class="p">
+            The Straight Edge Barbershop combines modern barbering with a welcoming hometown atmosphere. We offer a comprehensive
+            range of services, including classic haircuts, skin fades, detailed fades, and braids, catering to all hair textures.
+            Conveniently located near downtown Tahlequah, we excel in contemporary styles, beard trims, and fades, ensuring a
+            tailored experience for every client. Our commitment to precision and personalized service has earned us the distinction
+            of being Tahlequah’s #1 Barbershop for eight consecutive years. Experience the perfect blend of style and comfort at
+            The Straight Edge Barbershop.
+          </p>
+
+          <div class="about__highlights">
+            <div class="card-mini">
+              <div class="card-mini__title">Modern + Classic</div>
+              <div class="card-mini__text">Traditional craft with updated technique.</div>
+            </div>
+            <div class="card-mini">
+              <div class="card-mini__title">All Hair Textures</div>
+              <div class="card-mini__text">Fades, braids, and tailored styles for everyone.</div>
+            </div>
+            <div class="card-mini">
+              <div class="card-mini__title">Downtown Convenient</div>
+              <div class="card-mini__text">Just minutes from the heart of Tahlequah.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__images">
+          <figure class="img-card">
+            <img src="assets/Shop%20Interior.jpg" alt="Inside the barbershop" loading="lazy" />
+            <figcaption>Inside the shop</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <div class="eyebrow">Services</div>
+          <h2 class="h2">Select your barber to view services and pricing.</h2>
+          <p class="p p--muted">
+            Each barber books and prices services independently. Expand a list below, then click “Book Appointment” to schedule on Vagaro.
+          </p>
+        </div>
+
+        <div class="accordion" role="region" aria-label="Services by barber">
+          <!-- Emily -->
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__name">Emily Hullinger</span>
+              <span class="acc__hint">View services</span>
+            </summary>
+            <div class="acc__body">
+              <ul class="service-list">
+                <li><span>Emily’s Classic Haircut</span><span>$38</span></li>
+                <li><span>Emily’s Classic Haircut & Beard Trim</span><span>$48</span></li>
+                <li><span>Emily’s Skin Fade</span><span>$48</span></li>
+                <li><span>Emily’s Skin Fade & Beard Trim</span><span>$58</span></li>
+                <li><span>Emily’s Custom Haircut / Detailed Fade</span><span>$60</span></li>
+                <li><span>Emily’s Beard Trim</span><span>$28</span></li>
+                <li><span>Emily’s Mid to Long Length Haircut</span><span>$45</span></li>
+                <li><span>Emily’s Short Haircut, Blow-Dry, & Styled / Undercut Design / Pixie Cut</span><span>$60</span></li>
+                <li><span>Emily’s Flat Top</span><span>$50</span></li>
+              </ul>
+
+              <div class="service-notes">
+                <p class="p p--small">
+                  Emily specializes in tailored classic men’s haircuts and traditional fades, with options from precise 0-guard fades
+                  to sophisticated scissor cuts for the modern professional. Skin fades include low, medium, or high options finished
+                  with an electric foil shaver for a clean result.
+                </p>
+              </div>
+
+              <a class="btn btn--primary" href="https://www.vagaro.com/thestraightedgebarbershop/book-now" target="_blank" rel="noopener">
+                Book with Emily on Vagaro
+              </a>
+            </div>
+          </details>
+
+          <!-- Kerry -->
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__name">Kerry Justus</span>
+              <span class="acc__hint">View services</span>
+            </summary>
+            <div class="acc__body">
+              <ul class="service-list">
+                <li><span>Kerry’s Classic Adult Haircut</span><span>$25</span></li>
+                <li><span>Kerry’s Adult Classic Haircut w/ Beard Trim</span><span>$35</span></li>
+                <li><span>Kerry’s Adult Skin Fade</span><span>$35</span></li>
+                <li><span>Kerry’s Adult Skin Fade w/ Beard Trim</span><span>$45</span></li>
+                <li><span>Kerry’s Kids Classic Haircut (12 and under)</span><span>$22</span></li>
+                <li><span>Kerry’s Kids Skin Fade</span><span>$32</span></li>
+                <li><span>Kerry’s Women’s Haircut w/ Style</span><span>$35</span></li>
+                <li><span>Kerry’s Eyebrow Wax</span><span>$15</span></li>
+                <li><span>Kerry’s Beard Trim</span><span>$15</span></li>
+              </ul>
+
+              <a class="btn btn--primary" href="https://www.vagaro.com/thestraightedgebarbershop/book-now" target="_blank" rel="noopener">
+                Book with Kerry on Vagaro
+              </a>
+            </div>
+          </details>
+
+          <!-- Teegan -->
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__name">Teegan Fourkiller</span>
+              <span class="acc__hint">View services</span>
+            </summary>
+            <div class="acc__body">
+              <ul class="service-list">
+                <li><span>Teegan’s Classic Haircut</span><span>$25</span></li>
+                <li><span>Teegan’s Skin Fade</span><span>$35</span></li>
+                <li><span>Teegan’s Kids Classic Haircut (kids under 12)</span><span>$22</span></li>
+                <li><span>Teegan’s Kids Skin Fade (kids under 12)</span><span>$32</span></li>
+                <li><span>Teegan’s Custom Haircut</span><span>$35</span></li>
+                <li><span>Teegan’s Classic Haircut & Beard Trim</span><span>$35</span></li>
+                <li><span>Teegan’s Skin Fade & Beard Trim</span><span>$45</span></li>
+                <li><span>Teegan’s Beard Trim</span><span>$10</span></li>
+                <li><span>Teegan’s Mid to Long Length Haircut</span><span>$30</span></li>
+              </ul>
+
+              <a class="btn btn--primary" href="https://www.vagaro.com/thestraightedgebarbershop/book-now" target="_blank" rel="noopener">
+                Book with Teegan on Vagaro
+              </a>
+            </div>
+          </details>
+
+          <!-- Cori Sue -->
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__name">Cori Sue Butcher</span>
+              <span class="acc__hint">View services</span>
+            </summary>
+            <div class="acc__body">
+              <ul class="service-list">
+                <li><span>Cori Sue’s Classic Haircut</span><span>$25</span></li>
+                <li><span>Cori Sue’s Skin Fade</span><span>$30</span></li>
+                <li><span>Cori Sue’s Kids Haircut</span><span>$17</span></li>
+                <li><span>Cori Sue’s Kids Skin Fade</span><span>$25</span></li>
+                <li><span>Cori Sue’s Custom Haircut</span><span>$35</span></li>
+                <li><span>Cori Sue’s Women’s Haircut with Style</span><span>$30</span></li>
+                <li><span>Cori Sue’s Beard Trim</span><span>$10</span></li>
+                <li><span>Cori Sue’s Edge Up and Taper</span><span>$15</span></li>
+                <li><span>Cori Sue’s Classic Haircut & Beard Trim</span><span>$35</span></li>
+                <li><span>Cori Sue’s Skin Fade & Beard Trim</span><span>$40</span></li>
+                <li><span>Cori Sue’s Burr Cut</span><span>$15</span></li>
+                <li><span>Braid Consultation</span><span>FREE</span></li>
+                <li><span>Feed-In Braids</span><span>$40</span></li>
+                <li><span>Whole Head Loc Retwist</span><span>$80</span></li>
+                <li><span>Half Head Loc Retwist</span><span>$50</span></li>
+                <li><span>Whole Head Braids</span><span>$75</span></li>
+                <li><span>Half Head Hair Braids</span><span>$50</span></li>
+              </ul>
+
+              <a class="btn btn--primary" href="https://www.vagaro.com/thestraightedgebarbershop/book-now" target="_blank" rel="noopener">
+                Book with Cori Sue on Vagaro
+              </a>
+            </div>
+          </details>
+
+          <!-- Denise -->
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__name">Denise Cerda</span>
+              <span class="acc__hint">View services</span>
+            </summary>
+            <div class="acc__body">
+              <ul class="service-list">
+                <li><span>Denise’s Classic Haircut</span><span>$18</span></li>
+                <li><span>Denise’s Classic Kid’s Haircut (2–12)</span><span>$16</span></li>
+                <li><span>Denise’s Classic Haircut & Beard Trim</span><span>$25</span></li>
+                <li><span>Denise’s Skin Fade</span><span>$25</span></li>
+                <li><span>Denise’s Skin Fade & Beard Trim</span><span>$30</span></li>
+                <li><span>Denise’s Hot Towel Straight Razor – Full Head & Face</span><span>$50</span></li>
+                <li><span>Denise’s Beard Trim & Hot Towel Full Face Straight Razor</span><span>$40</span></li>
+                <li><span>Denise’s Full Head Hot Towel Straight Razor Shave & Beard Trim</span><span>$50</span></li>
+                <li><span>Denise’s Full Head Hot Towel Shave</span><span>$40</span></li>
+                <li><span>Burr & Beard Trim</span><span>$20</span></li>
+                <li><span>Beard Trim</span><span>$12</span></li>
+                <li><span>Burr & Beard Trim with Foil Shaver</span><span>$28</span></li>
+                <li><span>Ear and Nose Wax</span><span>$12</span></li>
+                <li><span>Ear Wax</span><span>$7</span></li>
+                <li><span>Nose Wax</span><span>$7</span></li>
+              </ul>
+
+              <a class="btn btn--primary" href="https://www.vagaro.com/thestraightedgebarbershop/book-now" target="_blank" rel="noopener">
+                Book with Denise on Vagaro
+              </a>
+            </div>
+          </details>
+
+          <!-- Felisha -->
+          <details class="acc">
+            <summary class="acc__summary">
+              <span class="acc__name">Felisha Phillips</span>
+              <span class="acc__hint">View services</span>
+            </summary>
+            <div class="acc__body">
+              <ul class="service-list">
+                <li><span>Classic Haircut</span><span>$25</span></li>
+                <li><span>Classic Haircut & Beard Trim</span><span>$35</span></li>
+                <li><span>Classic Kid’s Haircut (12 & Under)</span><span>$20</span></li>
+                <li><span>Bald Fade</span><span>$35</span></li>
+                <li><span>Custom Fade / Burst Fade / Mullet / All Taper Fades (All Ages)</span><span>$35</span></li>
+                <li><span>Beard Trim</span><span>$15</span></li>
+                <li><span>Women’s Haircut</span><span>$35</span></li>
+                <li><span>Bald Fade & Beard Trim</span><span>$45</span></li>
+              </ul>
+
+              <a class="btn btn--primary" href="https://www.vagaro.com/thestraightedgebarbershop/book-now" target="_blank" rel="noopener">
+                Book with Felisha on Vagaro
+              </a>
+            </div>
+          </details>
+        </div>
+
+        <div class="section__foot">
+          <a class="btn btn--primary" href="https://www.vagaro.com/thestraightedgebarbershop/book-now" target="_blank" rel="noopener">
+            Book Appointment
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="section">
+      <div class="container">
+        <div class="section__head">
+          <div class="eyebrow">Team</div>
+          <h2 class="h2">A team built on craft, consistency, and community.</h2>
+          <p class="p p--muted">Choose your barber when booking. Each professional operates their own services and availability.</p>
+        </div>
+
+        <div class="team-grid">
+          <div class="person-card">
+            <div class="person-card__name">Emily Hullinger</div>
+            <div class="person-card__role">Owner</div>
+          </div>
+          <div class="person-card">
+            <div class="person-card__name">Kerry Justus</div>
+            <div class="person-card__role">Barber</div>
+          </div>
+          <div class="person-card">
+            <div class="person-card__name">Teegan Fourkiller</div>
+            <div class="person-card__role">Barber</div>
+          </div>
+          <div class="person-card">
+            <div class="person-card__name">Cori Sue Butcher</div>
+            <div class="person-card__role">Barber / Braids & Locs</div>
+          </div>
+          <div class="person-card">
+            <div class="person-card__name">Denise Cerda</div>
+            <div class="person-card__role">Barber / Straight Razor</div>
+          </div>
+          <div class="person-card">
+            <div class="person-card__name">Felisha Phillips</div>
+            <div class="person-card__role">Barber</div>
+          </div>
+        </div>
+
+        <div class="photo-strip photo-strip--two">
+          <figure class="img-card img-card--wide">
+            <img src="assets/garret%20haircut.jpg" alt="A haircut at The Straight Edge Barbershop" loading="lazy" />
+            <figcaption>Clean cuts. Thoughtful details. Professional finish.</figcaption>
+          </figure>
+
+          <figure class="img-card img-card--wide">
+            <img src="assets/Emily%20(owner)%20standing%20next%20to%20her%20shop.jpg" alt="Emily Hullinger standing by the shop" loading="lazy" />
+            <figcaption>Owner: Emily Hullinger</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back-to-School Event Feature -->
+    <section id="event" class="section section--event" aria-label="Back to School Haircuts event">
+      <div class="event__bg" aria-hidden="true"></div>
+
+      <div class="container event__inner">
+        <div class="event-card">
+          <div class="event-card__top">
+            <img class="event-card__logo" src="assets/Back%20to%20School%20Haircuts%20Logo.png" alt="Back to School Haircuts logo" loading="lazy" />
+            <div class="event-card__badge">Community Event</div>
+          </div>
+
+          <div class="event-grid">
+            <div class="event-left">
+              <h2 class="h2 h2--event">Back-to-School Haircuts</h2>
+              <p class="p">
+                We kick off the school year with confidence, community, and fresh cuts. This annual event is built to support local
+                teachers and help students start strong with a clean look.
+              </p>
+
+              <ul class="event-list">
+                <li><span class="dot"></span><span>$5 student haircuts</span></li>
+                <li><span class="dot"></span><span>All proceeds go to teachers</span></li>
+                <li><span class="dot"></span><span>Students vote for their favorite teacher</span></li>
+                <li><span class="dot"></span><span>Selected teachers receive a Visa gift card</span></li>
+              </ul>
+
+              <div class="event-actions">
+                <a class="btn btn--event" href="https://fb.me/e/3a13Fs0HA" target="_blank" rel="noopener">
+                  View event on Facebook
+                </a>
+              </div>
+            </div>
+
+            <div class="event-right">
+              <figure class="event-photo">
+                <img src="assets/Boy%20From%20event.jpg" alt="Student at the Back to School Haircuts event" loading="lazy" />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <div class="eyebrow">Reviews</div>
+          <h2 class="h2">What our clients say</h2>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card">
+            <div class="stars" aria-label="Five stars">★★★★★</div>
+            <p class="p">“Love love love this place! My husband never liked his haircuts for YEARS… but he’s came here the last 3 times and loves it! We’ll be using Straight Edge for many more years to come!!”</p>
+            <div class="review-card__name">Lacey Tripp</div>
+          </article>
+
+          <article class="review-card">
+            <div class="stars" aria-label="Five stars">★★★★★</div>
+            <p class="p">“Emily and her team are amazing!! Emily's been cutting my sons hair since he was 8 years old... and is now 20! We love her & my son still doesn't trust any other shop, but hers!”</p>
+            <div class="review-card__name">Sarah Frankie</div>
+          </article>
+
+          <article class="review-card">
+            <div class="stars" aria-label="Five stars">★★★★★</div>
+            <p class="p">“Service and Customer Service is amazing and we love to come back! Emily has worked hard to make it inviting and have great stylists!”</p>
+            <div class="review-card__name">Shayna Rodriguez</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hours & Location -->
+    <section id="hours-location" class="section">
+      <div class="container grid-2">
+        <div>
+          <div class="eyebrow">Hours & Location</div>
+          <h2 class="h2">Visit The Straight Edge Barbershop</h2>
+
+          <div class="info-card">
+            <div class="info-row">
+              <div class="info-label">Address</div>
+              <div class="info-value">514 S Muskogee Ave, Tahlequah, OK</div>
+            </div>
+            <div class="info-row">
+              <div class="info-label">Phone</div>
+              <div class="info-value"><a href="tel:+19182072098">918-207-2098</a></div>
+            </div>
+            <div class="info-row">
+              <div class="info-label">Email</div>
+              <div class="info-value">
+                <a class="email-link" href="mailto:thestraightedge514@gmail.com">thestraightedge514@gmail.com</a>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-label">Hours</div>
+              <div class="info-value">
+                Tue–Fri: 9:00 AM–5:00 PM<br />
+                Sat: 9:00 AM–12:00 PM
+              </div>
+            </div>
+          </div>
+
+          <div class="hours-actions">
+            <a class="btn btn--primary" href="https://www.vagaro.com/thestraightedgebarbershop/book-now" target="_blank" rel="noopener">Book Appointment</a>
+            <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=514%20S%20Muskogee%20Ave%2C%20Tahlequah%2C%20OK" target="_blank" rel="noopener">Get Directions</a>
+          </div>
+
+          <div class="social">
+            <a class="social__link" href="https://www.instagram.com/thestraightedge514/" target="_blank" rel="noopener">Instagram</a>
+            <a class="social__link" href="https://www.facebook.com/thestraightedge514/" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <iframe
+            title="Map to The Straight Edge Barbershop"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=514%20S%20Muskogee%20Ave%20Tahlequah%20OK&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book -->
+    <section id="book" class="section section--book">
+      <div class="container book__inner">
+        <div class="book-card">
+          <div class="eyebrow">Book</div>
+          <h2 class="h2">Ready when you are.</h2>
+          <p class="p p--muted">Book online through Vagaro. Choose your barber and service, then select your time.</p>
+
+          <div class="book-actions">
+            <a class="btn btn--primary btn--lg" href="https://www.vagaro.com/thestraightedgebarbershop/book-now" target="_blank" rel="noopener">
+              Book Appointment
+            </a>
+            <a class="btn btn--ghost btn--lg" href="tel:+19182072098">Call: 918-207-2098</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" aria-label="Footer">
+      <div class="container footer__inner">
+        <div class="footer__left">
+          <img class="footer__logo" src="assets/Straight%20Edge%20Logo%20White.png" alt="The Straight Edge Barbershop logo" />
+          <div class="footer__small">
+            The Straight Edge Barbershop<br />
+            514 S Muskogee Ave, Tahlequah, OK<br />
+            <a href="mailto:thestraightedge514@gmail.com">thestraightedge514@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="footer__right">
+          <div class="footer__small">
+            Business Hours<br />
+            Tue–Fri: 9:00 AM–5:00 PM<br />
             Sat: 9:00 AM–12:00 PM
           </div>
+          <div class="footer__small footer__fine">
+            © <span id="year"></span> The Straight Edge Barbershop. All rights reserved.
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
+  </main>
 
-    <div class="map-card">
-      <iframe
-        loading="lazy"
-        src="https://www.google.com/maps?q=514%20S%20Muskogee%20Ave%20Tahlequah%20OK&output=embed">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container footer__inner">
-    <div>
-      <img class="footer__logo" src="assets/Straight%20Edge%20Logo%20White.png" alt="">
-      <div class="footer__small">
-        The Straight Edge Barbershop<br>
-        514 S Muskogee Ave, Tahlequah, OK<br>
-        <a href="mailto:thestraightedge514@gmail.com">
-          thestraightedge514@gmail.com
-        </a>
-      </div>
-    </div>
-
-    <div class="footer__small footer__fine">
-      © <span id="year"></span> The Straight Edge Barbershop
-    </div>
-  </div>
-</footer>
-
-</main>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
