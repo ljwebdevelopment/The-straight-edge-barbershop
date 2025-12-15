@@ -1,4 +1,6 @@
-// Mobile nav toggle
+// ===============================
+// Mobile navigation toggle
+// ===============================
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector("#site-nav");
 
@@ -9,8 +11,8 @@ if (toggle && nav) {
   });
 
   // Close nav when clicking a link (mobile)
-  nav.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => {
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
       if (nav.classList.contains("open")) {
         nav.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
@@ -19,8 +21,10 @@ if (toggle && nav) {
   });
 }
 
-// Improve scroll-to behavior by accounting for sticky header
-function getHeaderOffset(){
+// ===============================
+// Smooth scroll with sticky header offset
+// ===============================
+function getHeaderOffset() {
   const header = document.querySelector(".header");
   return header ? header.offsetHeight + 14 : 94;
 }
@@ -34,22 +38,38 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     if (!target) return;
 
     e.preventDefault();
-    const top = target.getBoundingClientRect().top + window.pageYOffset - getHeaderOffset();
-    window.scrollTo({ top, behavior: "smooth" });
+    const top =
+      target.getBoundingClientRect().top +
+      window.pageYOffset -
+      getHeaderOffset();
+
+    window.scrollTo({
+      top,
+      behavior: "smooth",
+    });
   });
 });
 
-// Footer year
+// ===============================
+// Footer year auto-update
+// ===============================
 const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 
-// Accordion single-open mode
+// ===============================
+// Accordion: allow only one open at a time
+// ===============================
 const accordions = document.querySelectorAll(".acc");
-accordions.forEach((d) => {
-  d.addEventListener("toggle", () => {
-    if (d.open) {
+
+accordions.forEach((accordion) => {
+  accordion.addEventListener("toggle", () => {
+    if (accordion.open) {
       accordions.forEach((other) => {
-        if (other !== d) other.open = false;
+        if (other !== accordion) {
+          other.open = false;
+        }
       });
     }
   });
