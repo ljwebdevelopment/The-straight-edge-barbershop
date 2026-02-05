@@ -971,3 +971,68 @@ html, body {
     height: 260px;
   }
 }
+/* =========================================
+   FIX: Profile fade overlay + modal scroll
+   Paste at VERY BOTTOM of styles.css
+========================================= */
+
+/* 1) Force the profile overview names to be white */
+.acc__name,
+.person-card__name{
+  color: #ffffff !important;
+}
+
+/* 2) Force the modal title to pure white (always) */
+.profile-modal__title{
+  color: #ffffff !important;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+}
+
+/* 3) Restore the background fade effect (photo blending into black) */
+.profile-modal__bg{
+  position: absolute !important;
+  inset: 0 !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  transform: scale(1.03);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.profile-modal__overlay{
+  position: absolute !important;
+  inset: 0 !important;
+  /* This is the “fade to black” blend */
+  background:
+    radial-gradient(900px 520px at 18% 22%, rgba(0,0,0,0.20), rgba(0,0,0,0.80) 62%, rgba(0,0,0,0.92) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.60) 42%, rgba(0,0,0,0.40) 72%, rgba(0,0,0,0.90) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.82) 78%, rgba(0,0,0,0.92) 100%) !important;
+}
+
+/* 4) Make the popup scroll correctly WITHOUT breaking the fade */
+.profile-modal__dialog{
+  max-height: calc(100vh - 10vh);
+  overflow: hidden; /* keeps the rounded corners clean */
+}
+
+.profile-modal__hero{
+  position: relative;
+  max-height: calc(100vh - 10vh);
+}
+
+/* This is the scroll container */
+.profile-modal__content{
+  position: relative;
+  z-index: 2;
+  max-height: calc(100vh - 10vh);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Keep close button always visible */
+.profile-modal__close{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+}
