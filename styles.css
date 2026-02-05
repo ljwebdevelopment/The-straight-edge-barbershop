@@ -906,3 +906,68 @@ html, body {
     max-width: none;
   }
 }
+/* ================================
+   FIXES: Modal scrolling + name color
+   Paste at VERY bottom of styles.css
+================================== */
+
+/* Make the dialog itself scrollable on smaller screens / long bios */
+.profile-modal__dialog{
+  /* keep your existing sizes, but cap height and allow internal scroll */
+  max-height: calc(100vh - 10vh);
+  overflow: hidden; /* contain internal scroll areas cleanly */
+}
+
+/* Make the hero area the scroll container (the part with the content) */
+.profile-modal__hero{
+  min-height: auto;            /* remove forced tall min-height */
+  max-height: calc(100vh - 10vh);
+  overflow-y: auto;            /* THIS enables scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure the background stays put while content scrolls */
+.profile-modal__bg,
+.profile-modal__overlay{
+  position: sticky;
+  top: 0;
+  height: 320px;               /* visible photo header height */
+  inset: auto;
+  display: block;
+}
+
+/* The content sits over the photo header then continues below */
+.profile-modal__content{
+  padding-top: 18px;
+}
+
+/* Keep the close button accessible while scrolling */
+.profile-modal__close{
+  position: sticky;
+  top: 14px;
+  float: right;                /* keeps it visually top-right */
+  margin-left: auto;
+  z-index: 10;
+}
+
+/* Make the modal name clean white + readable */
+.profile-modal__title{
+  color: #ffffff !important;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+}
+
+/* Optional: role + bio slightly brighter for readability */
+.profile-modal__role{
+  color: rgba(255,255,255,0.78);
+}
+.profile-modal__bio{
+  color: rgba(255,255,255,0.82);
+}
+
+/* On very small screens, tighten the header photo area */
+@media (max-width: 520px){
+  .profile-modal__bg,
+  .profile-modal__overlay{
+    height: 260px;
+  }
+}
