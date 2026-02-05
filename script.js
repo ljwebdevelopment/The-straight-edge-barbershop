@@ -84,9 +84,9 @@ const PROFILES = {
     bio: "Hey there! I'm the proud owner of The Straight Edge Barbershop, a business that has been my passion since I founded it in September 2014. I grew up in Tahlequah, Oklahoma, and always had a love for hair. That's why I enrolled in Tahlequah Beauty College in March 2010, and after graduation, I started my career at a local beauty salon. But after four years, I knew I needed something more. It wasn't until I joined my cousin Hal Green at his barbershop, Cowboy Barbershop in January 2014 that I found my true calling in barbering. With Hal's guidance, I honed my skills for eight months and gained invaluable knowledge and experience. Today, I specialize in all types of fades, scissor cuts, and more, and I'm dedicated to providing my clients with the highest level of service and expertise.",
     bookUrl: "https://www.vagaro.com/thestraightedgebarbershop/book-now",
     services: [
-      { title: "Emily’s Classic Haircut", price: "$38" },
-      { title: "Emily’s Classic Haircut & Beard Trim", price: "$48" },
-      { title: "Emily’s Skin Fade", price: "$48" },
+      { title: "Emily’s Classic Haircut", price: "38" },
+      { title: "Emily’s Classic Haircut & Beard Trim", price: "48" },
+      { title: "Emily’s Skin Fade", price: "48" },
       { title: "Emily’s Skin Fade & Beard Trim", price: "$58" },
       { title: "Emily’s Custom Haircut / Detailed Fade", price: "$60" },
       { title: "Emily’s Beard Trim", price: "$28" },
@@ -124,14 +124,13 @@ const PROFILES = {
     bio: "I am Nick Wallen, a professional barber with over 8 years of experience in the Barbering industry. My passion lies in delivering exceptional haircuts that leave my clients feeling confident and stylish. After gaining valuable experience at FadeNUp, a renowned barbershop in Norman, I helped open The Shoppe in McAlester, OK in 2021. Throughout my career, I have worked with all kinds of hair types and textures, and I take pride in my ability to create exceptional styles. Whether you're after a classic cut or something a bit more daring, I have the skills and expertise necessary to make it happen. Come visit me at the Straight Edge Barbershop!",
     bookUrl: "https://www.vagaro.com/thestraightedgebarbershop/book-now",
     services: [
-      { title: "Nick’s Classic Haircut", price: "$--" },
-      { title: "Nick’s Classic Haircut & Beard Trim", price: "$--" },
-      { title: "Nick’s Skin Fade - All Ages", price: "$--" },
-      { title: "Nick’s Skin Fade & Beard Trim", price: "$--" },
-      { title: "Nick’s Custom Fade - Burst, Tapers, Blowouts, ect.", price: "$--" },
-      { title: "Nick’s Custom Fade & Beard Trim - Bursts, Tapers, Blowouts, ect.", price: "$--" }
+      { title: "Nick’s Classic Haircut", price: "$25" },
+      { title: "Nick’s Classic Haircut & Beard Trim", price: "$35" },
+      { title: "Nick’s Skin Fade - All Ages", price: "$45" },
+      { title: "Nick’s Skin Fade & Beard Trim", price: "$45" },
+      { title: "Nick’s Custom Fade - Burst, Tapers, Blowouts, ect.", price: "$40" },
+      { title: "Nick’s Custom Fade & Beard Trim - Bursts, Tapers, Blowouts, ect.", price: "$50" }
     ],
-    note: "Note: Nick’s Classic Haircut — all ages."
   },
 
   teegan: {
@@ -234,14 +233,14 @@ const PROFILES = {
     bio: "My name is Colten Hickerson, I attended Elite Beauty College in Muskogee, OK from 2025 to 2026. This is my first year cutting hair. I'm excited to get my career started and learn as much as I can.",
     bookUrl: "https://www.vagaro.com/thestraightedgebarbershop/book-now",
     services: [
-      { title: "Colt’s Classic Haircut", price: "$--" },
-      { title: "Colt’s Classic Haircut & Beard Trim", price: "$--" },
-      { title: "Colt’s Classic Kid’s Haircut", price: "$--" },
-      { title: "Colt’s Skin Fade", price: "$--" },
-      { title: "Colt’s Skin Fade & Beard Trim", price: "$--" },
-      { title: "Colt’s Beard Trim", price: "$--" },
-      { title: "Colt’s Burr & Beard Trim", price: "$--" },
-      { title: "Colt’s Burr", price: "$--" }
+      { title: "Colt’s Classic Haircut", price: "$18" },
+      { title: "Colt’s Classic Haircut & Beard Trim", price: "$25" },
+      { title: "Colt’s Classic Kid’s Haircut", price: "$16" },
+      { title: "Colt’s Skin Fade", price: "$25" },
+      { title: "Colt’s Skin Fade & Beard Trim", price: "$30" },
+      { title: "Colt’s Beard Trim", price: "$12" },
+      { title: "Colt’s Burr & Beard Trim", price: "$20" },
+      { title: "Colt’s Burr", price: "$16" }
     ],
     note: ""
   }
