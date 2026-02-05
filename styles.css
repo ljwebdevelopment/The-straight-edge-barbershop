@@ -353,7 +353,7 @@ a{ color: inherit; text-decoration:none; }
   gap: 4px;
   min-width: 0;
 }
-.acc__name{ font-family: var(--serif); letter-spacing:0.2px; }
+.acc__name{ font-family: var(--serif); letter-spacing:0.2px; color:#fff; }
 .acc__preview{
   font-size: 12px;
   color: rgba(255,255,255,0.68);
@@ -379,7 +379,7 @@ a{ color: inherit; text-decoration:none; }
   border-radius: 16px;
   padding: 16px;
 }
-.person-card__name{ font-family: var(--serif); margin-bottom: 6px; }
+.person-card__name{ font-family: var(--serif); margin-bottom: 6px; color:#fff; }
 .person-card__role{ font-size: 13px; color: rgba(255,255,255,0.68); }
 
 .person-card--click{
@@ -415,7 +415,10 @@ a{ color: inherit; text-decoration:none; }
   gap: 12px;
 }
 
-/* ===== Profile Modal (fade/slide transition + photo blend) ===== */
+/* =========================================================
+   Profile Modal (CLEAN: fade backdrop + photo fade overlay + scroll)
+   IMPORTANT: This is the ONLY modal block. No duplicate "fix" blocks.
+========================================================= */
 .profile-modal{
   position: fixed;
   inset: 0;
@@ -424,48 +427,58 @@ a{ color: inherit; text-decoration:none; }
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 220ms ease, visibility 220ms ease;
-}
 
+  /* visibility delay prevents "click-through" during fade-out */
+  transition: opacity 240ms ease, visibility 0s linear 240ms;
+}
 .profile-modal.is-open{
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+
+  transition: opacity 240ms ease, visibility 0s;
 }
 
+/* Backdrop behind dialog */
 .profile-modal__backdrop{
   position:absolute;
   inset:0;
   background: rgba(0,0,0,0.72);
   backdrop-filter: blur(6px);
-  opacity: 0;
-  transition: opacity 220ms ease;
-}
 
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
 .profile-modal.is-open .profile-modal__backdrop{
   opacity: 1;
 }
 
+/* Dialog */
 .profile-modal__dialog{
   position: relative;
   width: min(960px, calc(100% - 28px));
   margin: 6vh auto;
+
   border-radius: 22px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(0,0,0,0.60);
   box-shadow: 0 26px 90px rgba(0,0,0,0.70);
 
+  /* entrance animation */
   transform: translateY(18px) scale(0.985);
   opacity: 0;
-  transition: transform 240ms ease, opacity 240ms ease;
-}
+  transition: transform 260ms ease, opacity 260ms ease;
 
+  /* keep modal within viewport */
+  max-height: calc(100vh - 12vh);
+}
 .profile-modal.is-open .profile-modal__dialog{
   transform: translateY(0) scale(1);
   opacity: 1;
 }
 
+/* Close button */
 .profile-modal__close{
   position:absolute;
   top: 14px;
@@ -487,11 +500,13 @@ a{ color: inherit; text-decoration:none; }
   border-color: rgba(255,255,255,0.20);
 }
 
+/* Hero stack */
 .profile-modal__hero{
   position: relative;
-  min-height: 520px;
+  height: 100%;
 }
 
+/* Photo layer */
 .profile-modal__bg{
   position:absolute;
   inset:0;
@@ -500,24 +515,34 @@ a{ color: inherit; text-decoration:none; }
   background-repeat:no-repeat;
   transform: scale(1.03);
   filter: saturate(1.05) contrast(1.05);
+  z-index: 0;
 }
 
+/* The actual "fade into black" layer (this is what you want visually) */
 .profile-modal__overlay{
   position:absolute;
   inset:0;
+  z-index: 1;
   background:
-    radial-gradient(900px 520px at 18% 22%, rgba(0,0,0,0.25), rgba(0,0,0,0.82) 62%, rgba(0,0,0,0.92) 100%),
-    linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.62) 42%, rgba(0,0,0,0.40) 72%, rgba(0,0,0,0.88) 100%),
-    linear-gradient(180deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.82) 78%, rgba(0,0,0,0.92) 100%);
+    radial-gradient(900px 520px at 18% 22%, rgba(0,0,0,0.20), rgba(0,0,0,0.80) 62%, rgba(0,0,0,0.92) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.60) 42%, rgba(0,0,0,0.40) 72%, rgba(0,0,0,0.90) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.82) 78%, rgba(0,0,0,0.92) 100%);
 }
 
+/* Content sits above layers AND scrolls */
 .profile-modal__content{
   position: relative;
   z-index: 2;
   padding: 26px;
+
   display:flex;
   flex-direction: column;
   gap: 16px;
+
+  /* THIS is the correct scroll container */
+  max-height: calc(100vh - 12vh);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .profile-modal__top{
@@ -546,6 +571,8 @@ a{ color: inherit; text-decoration:none; }
   font-family: var(--serif);
   font-size: 30px;
   letter-spacing: 0.2px;
+  color: #ffffff;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
 }
 .profile-modal__role{
   margin-top: 4px;
@@ -886,7 +913,6 @@ html, body {
   }
 
   .profile-modal__dialog{ margin: 5vh auto; }
-  .profile-modal__hero{ min-height: 540px; }
   .profile-modal__content{ padding: 18px; }
   .profile-modal__title{ font-size: 26px; }
 }
@@ -905,375 +931,4 @@ html, body {
     text-overflow: clip;
     max-width: none;
   }
-}
-/* ================================
-   FIXES: Modal scrolling + name color
-   Paste at VERY bottom of styles.css
-================================== */
-
-/* Make the dialog itself scrollable on smaller screens / long bios */
-.profile-modal__dialog{
-  /* keep your existing sizes, but cap height and allow internal scroll */
-  max-height: calc(100vh - 10vh);
-  overflow: hidden; /* contain internal scroll areas cleanly */
-}
-
-/* Make the hero area the scroll container (the part with the content) */
-.profile-modal__hero{
-  min-height: auto;            /* remove forced tall min-height */
-  max-height: calc(100vh - 10vh);
-  overflow-y: auto;            /* THIS enables scrolling */
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Ensure the background stays put while content scrolls */
-.profile-modal__bg,
-.profile-modal__overlay{
-  position: sticky;
-  top: 0;
-  height: 320px;               /* visible photo header height */
-  inset: auto;
-  display: block;
-}
-
-/* The content sits over the photo header then continues below */
-.profile-modal__content{
-  padding-top: 18px;
-}
-
-/* Keep the close button accessible while scrolling */
-.profile-modal__close{
-  position: sticky;
-  top: 14px;
-  float: right;                /* keeps it visually top-right */
-  margin-left: auto;
-  z-index: 10;
-}
-
-/* Make the modal name clean white + readable */
-.profile-modal__title{
-  color: #ffffff !important;
-  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
-}
-
-/* Optional: role + bio slightly brighter for readability */
-.profile-modal__role{
-  color: rgba(255,255,255,0.78);
-}
-.profile-modal__bio{
-  color: rgba(255,255,255,0.82);
-}
-
-/* On very small screens, tighten the header photo area */
-@media (max-width: 520px){
-  .profile-modal__bg,
-  .profile-modal__overlay{
-    height: 260px;
-  }
-}
-/* =========================================
-   FIX: Profile fade overlay + modal scroll
-   Paste at VERY BOTTOM of styles.css
-========================================= */
-
-/* 1) Force the profile overview names to be white */
-.acc__name,
-.person-card__name{
-  color: #ffffff !important;
-}
-
-/* 2) Force the modal title to pure white (always) */
-.profile-modal__title{
-  color: #ffffff !important;
-  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
-}
-
-/* 3) Restore the background fade effect (photo blending into black) */
-.profile-modal__bg{
-  position: absolute !important;
-  inset: 0 !important;
-  background-position: center !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  transform: scale(1.03);
-  filter: saturate(1.05) contrast(1.05);
-}
-
-.profile-modal__overlay{
-  position: absolute !important;
-  inset: 0 !important;
-  /* This is the “fade to black” blend */
-  background:
-    radial-gradient(900px 520px at 18% 22%, rgba(0,0,0,0.20), rgba(0,0,0,0.80) 62%, rgba(0,0,0,0.92) 100%),
-    linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.60) 42%, rgba(0,0,0,0.40) 72%, rgba(0,0,0,0.90) 100%),
-    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.82) 78%, rgba(0,0,0,0.92) 100%) !important;
-}
-
-/* 4) Make the popup scroll correctly WITHOUT breaking the fade */
-.profile-modal__dialog{
-  max-height: calc(100vh - 10vh);
-  overflow: hidden; /* keeps the rounded corners clean */
-}
-
-.profile-modal__hero{
-  position: relative;
-  max-height: calc(100vh - 10vh);
-}
-
-/* This is the scroll container */
-.profile-modal__content{
-  position: relative;
-  z-index: 2;
-  max-height: calc(100vh - 10vh);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Keep close button always visible */
-.profile-modal__close{
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 5;
-}
-/* ===== Profile Modal (FIXED fade + scroll + photo blend) ===== */
-
-.profile-modal{
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-
-  /* fade base state */
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transition: opacity 260ms ease, visibility 0s linear 260ms;
-}
-
-.profile-modal.is-open{
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-
-  /* remove delayed visibility when open */
-  transition: opacity 260ms ease, visibility 0s;
-}
-
-/* Backdrop fade */
-.profile-modal__backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.78);
-  backdrop-filter: blur(8px);
-
-  opacity: 0;
-  transition: opacity 260ms ease;
-}
-
-.profile-modal.is-open .profile-modal__backdrop{
-  opacity: 1;
-}
-
-/* Dialog fade + slide */
-.profile-modal__dialog{
-  position: relative;
-  width: min(960px, calc(100% - 28px));
-  margin: 6vh auto;
-
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(0,0,0,0.55);
-  box-shadow: 0 26px 90px rgba(0,0,0,0.72);
-
-  opacity: 0;
-  transform: translateY(18px) scale(0.985);
-  transition: opacity 260ms ease, transform 260ms ease;
-
-  /* scrolling rules */
-  max-height: calc(100vh - 12vh);
-}
-
-.profile-modal.is-open .profile-modal__dialog{
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Close button */
-.profile-modal__close{
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(0,0,0,0.45);
-  color: #fff;
-  font-size: 26px;
-  line-height: 0;
-  cursor: pointer;
-  z-index: 10;
-}
-.profile-modal__close:hover{
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(255,255,255,0.22);
-}
-
-/* Hero container */
-.profile-modal__hero{
-  position: relative;
-  height: 100%;
-}
-
-/* PHOTO BACKGROUND */
-.profile-modal__bg{
-  position: absolute;
-  inset: 0;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transform: scale(1.03);
-  filter: saturate(1.05) contrast(1.05);
-  z-index: 0;
-}
-
-/* THE “FADE INTO BLACK” OVERLAY (this is the key) */
-.profile-modal__overlay{
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-
-  background:
-    /* strong bottom fade */
-    linear-gradient(180deg,
-      rgba(0,0,0,0.10) 0%,
-      rgba(0,0,0,0.45) 35%,
-      rgba(0,0,0,0.86) 78%,
-      rgba(0,0,0,0.95) 100%),
-    /* side vignette */
-    radial-gradient(900px 520px at 20% 18%,
-      rgba(0,0,0,0.15) 0%,
-      rgba(0,0,0,0.65) 55%,
-      rgba(0,0,0,0.92) 100%);
-}
-
-/* CONTENT: scrolls, stays above fade */
-.profile-modal__content{
-  position: relative;
-  z-index: 2;
-  padding: 26px;
-
-  max-height: calc(100vh - 12vh);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* Top row */
-.profile-modal__top{
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.profile-modal__avatar-wrap{
-  width: 74px;
-  height: 74px;
-  border-radius: 999px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow: 0 16px 44px rgba(0,0,0,0.55);
-  flex: 0 0 auto;
-}
-.profile-modal__avatar{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* NAME WHITE (modal) */
-.profile-modal__title{
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 30px;
-  letter-spacing: 0.2px;
-  color: #ffffff;
-  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
-}
-
-.profile-modal__role{
-  margin-top: 4px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.78);
-}
-
-.profile-modal__bio{
-  margin: 0;
-  max-width: 820px;
-  font-size: 14.5px;
-  line-height: 1.75;
-  color: rgba(255,255,255,0.84);
-}
-
-.profile-modal__services{
-  margin-top: 4px;
-  background: rgba(0,0,0,0.42);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 18px;
-  padding: 16px;
-}
-
-.profile-modal__services-title{
-  font-size: 12px;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.72);
-  margin-bottom: 10px;
-}
-
-.profile-modal__service-list{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 10px;
-}
-
-.profile-modal__service-list li{
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.90);
-}
-.profile-modal__service-list li:last-child{ border-bottom: none; }
-
-.profile-modal__note{
-  margin-top: 10px;
-  font-size: 12.5px;
-  color: rgba(255,255,255,0.70);
-}
-
-.profile-modal__actions{
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* Make overview names white too */
-.acc__name,
-.person-card__name{
-  color: #ffffff !important;
-}
-
-/* Mobile tightening */
-@media (max-width: 520px){
-  .profile-modal__content{ padding: 18px; }
-  .profile-modal__title{ font-size: 26px; }
 }
