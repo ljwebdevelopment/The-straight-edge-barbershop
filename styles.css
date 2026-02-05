@@ -272,13 +272,6 @@ a{ color: inherit; text-decoration:none; }
   background: rgba(255,255,255,0.09);
 }
 
-/* Small button variant used in Services */
-.btn--sm{
-  padding: 10px 14px;
-  border-radius: 14px;
-  font-size: 13px;
-}
-
 .btn--lg{ padding: 14px 18px; border-radius: 16px; }
 
 /* About images */
@@ -321,7 +314,7 @@ a{ color: inherit; text-decoration:none; }
   line-height: 1.6;
 }
 
-/* Accordion */
+/* Services (click-to-open modal) */
 .accordion{ display:grid; gap: 12px; }
 .acc{
   background: rgba(255,255,255,0.04);
@@ -339,56 +332,11 @@ a{ color: inherit; text-decoration:none; }
   gap: 12px;
 }
 .acc__summary::-webkit-details-marker{ display:none; }
-.acc__name{ font-family: var(--serif); letter-spacing:0.2px; }
-.acc__hint{
-  color: rgba(255,255,255,0.68);
-  font-size: 13px;
-  padding: 8px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.04);
-}
-.acc[open] .acc__hint{
-  border-color: rgba(116,0,0,0.55);
-  background: rgba(116,0,0,0.18);
-}
-.acc__body{
-  padding: 0 16px 18px 16px;
-  border-top: 1px solid rgba(255,255,255,0.10);
-}
-.service-list{
-  margin: 14px 0 12px;
-  padding: 0;
-  list-style:none;
-}
-.service-list li{
-  display:flex;
-  justify-content:space-between;
-  gap: 14px;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.82);
-}
-.service-list li:last-child{ border-bottom:none; }
-.service-notes{ margin: 10px 0 14px; }
-
-/* Service note row */
-.service-note{
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  padding-top: 0;
-}
-.note{
-  font-size: 12px;
-  color: rgba(255,255,255,0.66);
-  font-style: italic;
-}
-
-/* ===== NEW: Services summary layout (avatar + bio preview) ===== */
 .acc__left{
   display:flex;
   align-items:center;
   gap: 12px;
-  min-width: 0; /* enables truncation */
+  min-width: 0;
 }
 .acc__avatar{
   width: 46px;
@@ -405,6 +353,7 @@ a{ color: inherit; text-decoration:none; }
   gap: 4px;
   min-width: 0;
 }
+.acc__name{ font-family: var(--serif); letter-spacing:0.2px; }
 .acc__preview{
   font-size: 12px;
   color: rgba(255,255,255,0.68);
@@ -414,6 +363,9 @@ a{ color: inherit; text-decoration:none; }
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Hide bodies since services show in modal now */
+.acc__body{ display:none; }
 
 /* Team */
 .team-grid{
@@ -430,14 +382,6 @@ a{ color: inherit; text-decoration:none; }
 .person-card__name{ font-family: var(--serif); margin-bottom: 6px; }
 .person-card__role{ font-size: 13px; color: rgba(255,255,255,0.68); }
 
-.photo-strip{ margin-top: 18px; }
-.photo-strip--two{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-/* ===== NEW: Team cards with avatars + bio preview + click affordance ===== */
 .person-card--click{
   text-align:left;
   cursor:pointer;
@@ -464,20 +408,42 @@ a{ color: inherit; text-decoration:none; }
   line-height: 1.55;
 }
 
-/* ===== NEW: Profile Modal (photo background blending into black) ===== */
+.photo-strip{ margin-top: 18px; }
+.photo-strip--two{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ===== Profile Modal (fade/slide transition + photo blend) ===== */
 .profile-modal{
   position: fixed;
   inset: 0;
   z-index: 2000;
-  display: none;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 220ms ease, visibility 220ms ease;
 }
-.profile-modal.is-open{ display:block; }
+
+.profile-modal.is-open{
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
 
 .profile-modal__backdrop{
   position:absolute;
   inset:0;
   background: rgba(0,0,0,0.72);
   backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.profile-modal.is-open .profile-modal__backdrop{
+  opacity: 1;
 }
 
 .profile-modal__dialog{
@@ -489,6 +455,15 @@ a{ color: inherit; text-decoration:none; }
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(0,0,0,0.60);
   box-shadow: 0 26px 90px rgba(0,0,0,0.70);
+
+  transform: translateY(18px) scale(0.985);
+  opacity: 0;
+  transition: transform 240ms ease, opacity 240ms ease;
+}
+
+.profile-modal.is-open .profile-modal__dialog{
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 .profile-modal__close{
@@ -527,7 +502,6 @@ a{ color: inherit; text-decoration:none; }
   filter: saturate(1.05) contrast(1.05);
 }
 
-/* Overlay: smooth blend into black (classy) */
 .profile-modal__overlay{
   position:absolute;
   inset:0;
@@ -874,7 +848,7 @@ html, body {
   .event-photo img{ height: 300px; }
   .photo-strip--two{ grid-template-columns: 1fr; }
 
-  .acc__preview{ max-width: 52vw; } /* keep it tidy on tablet */
+  .acc__preview{ max-width: 52vw; }
 }
 
 /* Mobile menu + event stacking */
@@ -911,7 +885,6 @@ html, body {
     max-width: 70vw;
   }
 
-  /* Modal sizing on phones */
   .profile-modal__dialog{ margin: 5vh auto; }
   .profile-modal__hero{ min-height: 540px; }
   .profile-modal__content{ padding: 18px; }
@@ -926,7 +899,6 @@ html, body {
   .map-card iframe{ min-height: 320px; }
   .footer__inner{ flex-direction: column; }
 
-  /* Services summary: allow wrap on tiny screens */
   .acc__preview{
     white-space: normal;
     overflow: visible;
