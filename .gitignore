@@ -1,0 +1,19 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.log
+
+# Dependency/build folders should not be committed for this static site
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+.vite/
+
+# Local environment files
+.env
+.env.*
+!.env.example
