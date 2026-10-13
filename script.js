@@ -45,27 +45,6 @@ const team = [
     bio: "More than 40 years in the craft, known for classic fades, clean beards, and consistent results."
   },
   {
-    name: "Nick Wallen",
-    role: "Barber",
-    image: "assets/team/nick.jpg",
-    alt: "Nick Wallen",
-    bio: "Eight-plus years of experience with classic cuts, bold custom fades, and a polished finish."
-  },
-  {
-    name: "Teegan Fourkiller",
-    role: "Barber",
-    image: "assets/team/teegan.jpg",
-    alt: "Teegan Fourkiller",
-    bio: "Licensed cosmetologist who enjoys the challenge of unique cuts and client-specific detail."
-  },
-  {
-    name: "Cori Sue Butcher",
-    role: "Braids, Locs & Barbering",
-    image: "assets/team/cori-butcher.jpg",
-    alt: "Cori Sue Butcher",
-    bio: "Detail-driven barber offering skin fades, braids, loc styles, and polished texture work."
-  },
-  {
     name: "Denise Cerda",
     role: "Straight Razor Barber",
     image: "assets/team/denise.jpg",
@@ -78,13 +57,6 @@ const team = [
     image: "assets/team/felisha.jpg",
     alt: "Felisha Phillips",
     bio: "Nine years of experience in women's and men's cuts with a tailored, careful finish."
-  },
-  {
-    name: "Colt Hickerson",
-    role: "Barber",
-    image: "assets/team/colt.jpg",
-    alt: "Colt Hickerson",
-    bio: "A new barber building his craft with focus, energy, and a steady hand for clean cuts."
   }
 ];
 
